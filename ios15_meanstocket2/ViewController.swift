@@ -11,15 +11,22 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBAction func leftBtnPressed(sender: UIButton) {
-        socket.emit("javascript")
+        socket.emit("javascript", "Javascript")
+        print("JS Button Pressed")
+        print(socket)
     }
     
     @IBAction func rightBtnPressed(sender: UIButton) {
-        socket.emit("swift")
+        //socket.emit("swift", "Swift")
+        print("Swift Button Pressed")
+        socket.emit("bomb", "22")
+        print(socket)
     }
-    
 
-    let socket = SocketIOClient(socketURL: "https://intense-temple-2782.herokuapp.com")
+
+//    let socket = SocketIOClient(socketURL: "http://52.27.156.191:5000")
+
+    let socket = SocketIOClient(socketURL: "http://localhost:5000")
     
     override func viewDidLoad() {
         super.viewDidLoad()
